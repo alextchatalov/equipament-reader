@@ -5,3 +5,5 @@ w
 Gsrc/main/java/com/br/equipamentreader/core/job/ReadFromDatabaseJob.java,0/9/09c1fe6bea227098359fa072b075c0326053a304
 Å
 Qsrc/main/java/com/br/equipamentreader/core/usecase/FindEquipmentTempBoundary.java,2/1/213fa8457ac9dcd0d8da797796422be726cec7b5
+ä
+Zsrc/main/java/com/br/equipamentreader/dataprovider/repository/write/MongoDbRepository.java,e/5/e574a5d0542ee0300c7ce3f8fdf8d00d40ee17e8

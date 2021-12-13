@@ -1,6 +1,7 @@
 package com.br.equipamentreader;
 
 import com.br.equipamentreader.core.usecase.ReadFromDataBaseUseCase;
+import com.br.equipamentreader.dataprovider.repository.write.MongoDbRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

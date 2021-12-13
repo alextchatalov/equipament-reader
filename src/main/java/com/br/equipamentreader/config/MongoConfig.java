@@ -12,16 +12,15 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "escolha_seu_banco";
+        return "equipament_reader";
     }
 
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb+srv://escolha_seu_banco:yzKimAoN6W6Hm61q@cluster0.ymic8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+        ConnectionString connectionString = new ConnectionString("mongodb+srv://escolha_seu_banco:yzKimAoN6W6Hm61q@cluster0.ymic8.mongodb.net/equipament_reader?retryWrites=true&w=majority");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
-
         return MongoClients.create(mongoClientSettings);
     }
 }

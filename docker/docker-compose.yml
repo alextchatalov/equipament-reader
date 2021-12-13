@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  mongo-db:
-    image: mongo:latest
-    container_name: mongo-equipment-reader
-    volumes:
-      - ~/mongo/data:/data/db
-    ports:
-      - 27030:27017
   teste-postgres-compose:
     image: postgres
     environment:
