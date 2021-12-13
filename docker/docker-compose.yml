@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo-equipment-reader
+    volumes:
+      - ~/mongo/data:/data/db
+    ports:
+      - 27030:27017
+  teste-postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "123"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/alextc/volume/postgresql:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+      
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "alex_tr1992@hotmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "123"
+    ports:
+      - "16543:80"
+    depends_on:
+      - teste-postgres-compose
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge
