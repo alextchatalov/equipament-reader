@@ -1,4 +1,4 @@
-package com.br.equipamentreader.dataprovider.entity.write;
+package com.br.equipamentreader.dataprovider.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,10 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EquipmentWrite {
+public class Equipment {
 
     @Id
-    private Long id;
-    private String name;
-    private String temp;
+    private String id;
+    private String equipmentJson;
 }

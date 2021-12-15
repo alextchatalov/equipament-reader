@@ -1,11 +1,12 @@
 package com.br.equipamentreader.dataprovider.gateway;
 
 import com.br.equipamentreader.core.usecase.FindEquipmentTempBoundary;
-import com.br.equipamentreader.dataprovider.entity.reader.EquipmentReader;
+import com.br.equipamentreader.dataprovider.entity.Equipment;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,42 +21,45 @@ import java.util.List;
 public class FindEquipmentTempGateway implements FindEquipmentTempBoundary {
 
 
-    @Value( "${postgres.datasource.url}" )
+    @Value("${postgres.datasource.url}")
     private String jdbcUrl;
 
-    @Value( "${postgres.datasource.username}" )
+    @Value("${postgres.datasource.username}")
     private String username;
 
-    @Value( "${postgres.datasource.password}" )
+    @Value("${postgres.datasource.password}")
     private String password;
 
-    @Value( "${postgres.datasource.query}" )
+    @Value("${postgres.datasource.query}")
     private String query;
 
     @Override
-    public List<EquipmentReader> execute() {
-        List<EquipmentReader> equipmentReaders = new ArrayList<>();
-        try (Connection conn = DriverManager.getConnection(
+    public List<Equipment> execute() {
+        final List<Equipment> equipmentReaders = new ArrayList<>();
+
+        try (final Connection conn = DriverManager.getConnection(
                 jdbcUrl, username, password);
-             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+             final PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-
+            final ResultSet resultSet = preparedStatement.executeQuery();
+            StringBuilder objectJson = new StringBuilder("{");
             while (resultSet.next()) {
 
-                long id = resultSet.getLong("ID");
-                String name = resultSet.getString("NAME");
-                String temperature = resultSet.getString("TEMP");
-
-                EquipmentReader equipmentReader = EquipmentReader.builder().id(id).name(name).temp(temperature).build();
-                equipmentReaders.add(equipmentReader);
+                for (int i = 1; i < resultSet.getMetaData().getColumnCount() + 1; i++) {
+                    objectJson.append("\"").append(resultSet.getMetaData().getColumnName(i)).append("\":")
+                            .append("\"").append(resultSet.getObject(i)).append("\"")
+                            .append(",");
+                }
+                final String json = objectJson.substring(0, objectJson.length() - 1);
+                final Equipment equipment = Equipment.builder().equipmentJson(json + "}").build();
+                equipmentReaders.add(equipment);
+                objectJson = new StringBuilder("{");
 
             }
-            equipmentReaders.forEach(x -> System.out.println(x));
 
-        } catch (SQLException e) {
+        } catch (final SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-        } catch (Exception e) {
+        } catch (final Exception e) {
             e.printStackTrace();
         }
         return equipmentReaders;

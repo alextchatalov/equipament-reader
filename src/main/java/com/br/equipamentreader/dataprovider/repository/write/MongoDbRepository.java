@@ -1,7 +1,7 @@
 package com.br.equipamentreader.dataprovider.repository.write;
 
-import com.br.equipamentreader.dataprovider.entity.write.EquipmentWrite;
+import com.br.equipamentreader.dataprovider.entity.Equipment;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface MongoDbRepository extends MongoRepository<EquipmentWrite, Long> {
+public interface MongoDbRepository extends MongoRepository<Equipment, Long> {
 }
