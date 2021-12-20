@@ -1,0 +1,8 @@
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/config/MongoConfig.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/dataprovider/gateway/FindEquipmentTempGateway.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/dataprovider/entity/Equipment.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/dataprovider/repository/write/MongoDbRepository.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/core/job/ReadFromDatabaseJob.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/core/usecase/ReadFromDataBaseUseCase.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/core/usecase/FindEquipmentTempBoundary.java
+/home/alextc/repositorios/alex/equipament-reader/src/main/java/com/br/equipamentreader/EquipamentReaderApplication.java

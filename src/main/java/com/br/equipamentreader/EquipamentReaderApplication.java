@@ -1,25 +1,22 @@
 package com.br.equipamentreader;
 
-import com.br.equipamentreader.core.usecase.ReadFromDataBaseUseCase;
-import com.br.equipamentreader.dataprovider.repository.write.MongoDbRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class EquipamentReaderApplication implements CommandLineRunner {
+public class EquipamentReaderApplication {
+//implements CommandLineRunner
+//    private final ReadFromDataBaseUseCase readFromDataBaseUseCase;
 
-	private final ReadFromDataBaseUseCase readFromDataBaseUseCase;
+    public static void main(final String[] args) {
+        SpringApplication.run(EquipamentReaderApplication.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(EquipamentReaderApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) {
-		readFromDataBaseUseCase.execute();
-	}
+//    @Override
+//    public void run(final String... args) {
+//        readFromDataBaseUseCase.execute();
+//    }
 
 }

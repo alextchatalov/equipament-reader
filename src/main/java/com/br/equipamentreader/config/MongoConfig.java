@@ -17,7 +17,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb+srv://escolha_seu_banco:yzKimAoN6W6Hm61q@cluster0.ymic8.mongodb.net/equipament_reader?retryWrites=true&w=majority");
+        final ConnectionString connectionString = new ConnectionString("mongodb+srv://escolha_seu_banco:yzKimAoN6W6Hm61q@cluster0.byyss.mongodb.net/equipament_reader?retryWrites=true&w=majority");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();

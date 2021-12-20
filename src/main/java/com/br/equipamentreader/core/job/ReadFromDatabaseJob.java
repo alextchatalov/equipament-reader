@@ -1,6 +1,7 @@
 package com.br.equipamentreader.core.job;
 
-import lombok.AllArgsConstructor;
+import com.br.equipamentreader.core.usecase.ReadFromDataBaseUseCase;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -9,11 +10,13 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @EnableScheduling
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ReadFromDatabaseJob {
 
-    @Scheduled(fixedDelay = 500000)
-    private void run() {
+    private final ReadFromDataBaseUseCase readFromDataBaseUseCase;
 
+    @Scheduled(fixedDelay = 1000)
+    private void run() {
+        readFromDataBaseUseCase.execute();
     }
 }

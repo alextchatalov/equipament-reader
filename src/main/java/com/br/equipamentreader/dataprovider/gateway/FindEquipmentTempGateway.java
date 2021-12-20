@@ -33,6 +33,9 @@ public class FindEquipmentTempGateway implements FindEquipmentTempBoundary {
     @Value("${postgres.datasource.query}")
     private String query;
 
+    @Value("${equipment.client.name}")
+    private String clientName;
+
     @Override
     public List<Equipment> execute() {
         final List<Equipment> equipmentReaders = new ArrayList<>();
@@ -51,7 +54,8 @@ public class FindEquipmentTempGateway implements FindEquipmentTempBoundary {
                             .append(",");
                 }
                 final String json = objectJson.substring(0, objectJson.length() - 1);
-                final Equipment equipment = Equipment.builder().equipmentJson(json + "}").build();
+                final String finalJson = json + ", \"clinet\":" + clientName + "}";
+                final Equipment equipment = Equipment.builder().equipmentJson(finalJson).build();
                 equipmentReaders.add(equipment);
                 objectJson = new StringBuilder("{");
 

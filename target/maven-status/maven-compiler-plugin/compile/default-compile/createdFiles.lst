@@ -1,0 +1,9 @@
+com/br/equipamentreader/dataprovider/gateway/FindEquipmentTempGateway.class
+com/br/equipamentreader/core/job/ReadFromDatabaseJob.class
+com/br/equipamentreader/config/MongoConfig.class
+com/br/equipamentreader/EquipamentReaderApplication.class
+com/br/equipamentreader/dataprovider/entity/Equipment.class
+com/br/equipamentreader/core/usecase/ReadFromDataBaseUseCase.class
+com/br/equipamentreader/dataprovider/repository/write/MongoDbRepository.class
+com/br/equipamentreader/dataprovider/entity/Equipment$EquipmentBuilder.class
+com/br/equipamentreader/core/usecase/FindEquipmentTempBoundary.class
