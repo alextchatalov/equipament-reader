@@ -1,7 +1,13 @@
 
 9
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-ä
-Zsrc/main/java/com/br/equipamentreader/dataprovider/repository/write/MongoDbRepository.java,e/5/e574a5d0542ee0300c7ce3f8fdf8d00d40ee17e8
-Å
-Qsrc/main/java/com/br/equipamentreader/core/usecase/FindEquipmentTempBoundary.java,2/1/213fa8457ac9dcd0d8da797796422be726cec7b5
+v
+Fsrc/main/java/com/br/equipamentreader/EquipamentReaderApplication.java,4/f/4fba4627be75dc247c491d2e2a12caf7cb726895
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+I
+docker/docker-compose.yml,3/f/3fe733692645251b38d6ef0a55b2d48c3a1cf387
+Ä
+Psrc/main/java/com/br/equipamentreader/core/usecase/GetAllEquipmentsBoundary.java,f/2/f220122529e123fd0cb4b85093ae8ee4ce857175
+l
+<src/main/java/com/br/equipamentreader/config/JsonMapper.java,2/8/289949f891ecd6fa16d3f1dfbf4c394b73b91fce

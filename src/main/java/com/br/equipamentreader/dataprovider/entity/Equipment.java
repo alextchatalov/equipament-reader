@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "equipment")
+@Document(collection = "equipment")
 @Builder
 @Getter
 @AllArgsConstructor
@@ -16,5 +16,7 @@ public class Equipment {
 
     @Id
     private String id;
-    private String equipmentJson;
+    private String name;
+    private String temp;
+    private String clientName;
 }

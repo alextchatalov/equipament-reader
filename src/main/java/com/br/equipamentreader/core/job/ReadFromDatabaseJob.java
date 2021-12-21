@@ -15,7 +15,7 @@ public class ReadFromDatabaseJob {
 
     private final ReadFromDataBaseUseCase readFromDataBaseUseCase;
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 10000)
     private void run() {
         readFromDataBaseUseCase.execute();
     }

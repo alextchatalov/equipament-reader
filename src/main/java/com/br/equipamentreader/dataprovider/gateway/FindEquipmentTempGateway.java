@@ -45,19 +45,23 @@ public class FindEquipmentTempGateway implements FindEquipmentTempBoundary {
              final PreparedStatement preparedStatement = conn.prepareStatement(query)) {
 
             final ResultSet resultSet = preparedStatement.executeQuery();
-            StringBuilder objectJson = new StringBuilder("{");
+//            final StringBuilder objectJson = new StringBuilder("{");
             while (resultSet.next()) {
 
-                for (int i = 1; i < resultSet.getMetaData().getColumnCount() + 1; i++) {
-                    objectJson.append("\"").append(resultSet.getMetaData().getColumnName(i)).append("\":")
-                            .append("\"").append(resultSet.getObject(i)).append("\"")
-                            .append(",");
-                }
-                final String json = objectJson.substring(0, objectJson.length() - 1);
-                final String finalJson = json + ", \"clinet\":" + clientName + "}";
-                final Equipment equipment = Equipment.builder().equipmentJson(finalJson).build();
+//                for (int i = 1; i < resultSet.getMetaData().getColumnCount() + 1; i++) {
+//                    objectJson.append("\"").append(resultSet.getMetaData().getColumnName(i)).append("\":")
+//                            .append("\"").append(resultSet.getObject(i)).append("\"")
+//                            .append(",");
+//                }
+//                final String json = objectJson.substring(0, objectJson.length() - 1);
+                final Equipment equipment = Equipment.builder()
+                        .id(resultSet.getString("id"))
+                        .name(resultSet.getString("name"))
+                        .temp(resultSet.getString("temperature"))
+                        .clientName(clientName)
+                        .build();
                 equipmentReaders.add(equipment);
-                objectJson = new StringBuilder("{");
+//                objectJson = new StringBuilder("}");
 
             }
 
